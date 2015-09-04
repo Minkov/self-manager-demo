@@ -19,7 +19,8 @@ app.use('/api/users', usersRouter);
 app.use('/api/todos', todosRouter);
 app.use('/api/events', eventsRouter);
 app.use('/api/categories', categoriesRouter);
-var port = 3013;
+
+var port = process.env.PORT || 3013;
 
 app.listen(port, function() {
   console.log('Server is running at http://localhost:' + port);
