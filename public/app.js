@@ -9,6 +9,9 @@
 
     this.get('#/events', eventsController.all);
     this.get('#/events/add', eventsController.add);
+
+    this.get('#/users', usersController.all);
+    this.get('#/users/register', usersController.register);
   });
 
   $(function() {

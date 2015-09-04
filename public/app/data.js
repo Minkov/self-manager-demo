@@ -4,6 +4,32 @@ var data = (function() {
 
   /* Users */
 
+  function register(user) {
+    var promise = new Promise(function(resolve, reject) {
+      var reqUser = {
+        username: user.username,
+        passHash: CryptoJS.SHA1(user.username + user.password).toString()
+      };
+
+      $.ajax('api/users', {
+        method: 'POST',
+        data: JSON.stringify(reqUser),
+        contentType: 'application/json',
+        success: function(resp) {
+          var user = resp.result;
+          localStorage.setItem(LOCAL_STORAGE_USERNAME_KEY, user.username);
+          localStorage.setItem(LOCAL_STORAGE_AUTHKEY_KEY, user.authKey);
+          resolve();
+        },
+        err: function(err) {
+          resject(err);
+        }
+      });
+    });
+    return promise;
+  }
+
+
   function signIn(user) {
     var promise = new Promise(function(resolve, reject) {
       var reqUser = {
@@ -31,6 +57,17 @@ var data = (function() {
       localStorage.removeItem(LOCAL_STORAGE_USERNAME_KEY);
       localStorage.removeItem(LOCAL_STORAGE_AUTHKEY_KEY);
       resolve();
+    });
+    return promise;
+  }
+
+  function usersGet() {
+    var promise = new Promise(function(resolve, reject) {
+      $.getJSON('api/users', function(resp) {
+        resolve(resp.result);
+      }).error(function(err) {
+        reject(err);
+      });
     });
     return promise;
   }
@@ -77,7 +114,7 @@ var data = (function() {
     return promise;
   }
 
-  function todosUpdate(id, todo){
+  function todosUpdate(id, todo) {
     var promise = new Promise(function(resolve, reject) {
       var url = `api/todos/${id}`;
       $.ajax(url, {
@@ -100,7 +137,7 @@ var data = (function() {
 
   /*  Events */
 
-  function eventsGet(){
+  function eventsGet() {
     var promise = new Promise(function(resolve, reject) {
       var url = 'api/events';
       $.ajax(url, {
@@ -121,25 +158,25 @@ var data = (function() {
 
   }
 
-  function eventsAdd(event){
-      var promise = new Promise(function(resolve, reject) {
-        var url = 'api/events';
-        $.ajax(url, {
-          method: 'POST',
-          contentType: 'application/json',
-          data: JSON.stringify(event),
-          headers: {
-            'x-auth-key': localStorage.getItem(LOCAL_STORAGE_AUTHKEY_KEY)
-          },
-          success: function(resp) {
-            resolve(resp.result);
-          },
-          error: function(err) {
-            reject(err);
-          }
-        });
+  function eventsAdd(event) {
+    var promise = new Promise(function(resolve, reject) {
+      var url = 'api/events';
+      $.ajax(url, {
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(event),
+        headers: {
+          'x-auth-key': localStorage.getItem(LOCAL_STORAGE_AUTHKEY_KEY)
+        },
+        success: function(resp) {
+          resolve(resp.result);
+        },
+        error: function(err) {
+          reject(err);
+        }
       });
-      return promise;
+    });
+    return promise;
   }
 
 
@@ -167,7 +204,9 @@ var data = (function() {
   return {
     users: {
       signIn,
-      signOut
+      signOut,
+      register,
+      get: usersGet
     },
     todos: {
       get: todosGet,
