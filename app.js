@@ -22,5 +22,5 @@ app.use('/api/categories', categoriesRouter);
 var port = 3013;
 
 app.listen(port, function() {
-  console.log(`Server is running at http://localhost:${port}`);
+  console.log('Server is running at http://localhost:' + port);
 });

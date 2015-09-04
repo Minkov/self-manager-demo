@@ -24,6 +24,12 @@
           "text": "Text",
           "state": false,
           "category": "My new category"
+        },
+        {
+          "id": 303705,
+          "text": "NEW TEST",
+          "state": false,
+          "category": "Home"
         }
       ],
       "events": [
