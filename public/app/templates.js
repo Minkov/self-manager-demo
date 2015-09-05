@@ -20,6 +20,6 @@ var templates = function() {
   }
 
   return {
-    get
+    get: get
   };
 }();

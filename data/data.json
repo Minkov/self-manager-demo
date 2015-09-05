@@ -2,59 +2,27 @@
   "users": [
     {
       "username": "Minkov",
-      "passHash": "4cb5ba2355368d4dfd14c9eee9a134791f7001cb",
+      "passHash": "aa95f6e4ccc679dcdf2627efff6832aa4a4ac44a",
       "usernameLower": "minkov",
-      "id": 814565,
-      "authKey": "814565gid-zeb)*uv&no^=^@shylqo=qaoummfsvqju%%cfp#j-ocyanfcj%",
+      "authKey": "undefinedFP^h&Pv$RmllCJNOQfBafJKqS%V=scbgMgZWcJLwdG@=!+Ku-op",
+      "id": "7cb06f58-3fde-489e-9a06-91f8272a519a",
       "todos": [
         {
-          "id": 200167,
-          "text": "Wash the dishes",
-          "category": "Home",
-          "state": false
-        },
-        {
-          "id": 797498,
-          "text": "Wash the dishes",
-          "state": false,
-          "category": "My new category"
-        },
-        {
-          "id": 662556,
-          "text": "Text",
-          "state": false,
-          "category": "My new category"
-        },
-        {
-          "id": 303705,
-          "text": "NEW TEST",
+          "id": 740602,
+          "text": "Clean the dishes",
           "state": false,
           "category": "Home"
         }
       ],
       "events": [
         {
-          "id": 826042,
-          "title": "Pay the phone bill",
-          "category": "Bills",
-          "description": "Pay the bill, before they suspend it",
-          "date": "2015-10-01T21:00:00.000Z"
-        },
-        {
-          "id": 831305,
-          "title": "Clean!!!",
-          "category": "VERY VERY IMPORTANT",
-          "description": "Your girl will suspend you!",
-          "date": "2015-10-05T21:00:00.000Z"
+          "id": 937231,
+          "title": "Text",
+          "category": "Home",
+          "description": "123",
+          "date": "2015-09-22T22:30:00.000Z"
         }
       ]
-    },
-    {
-      "username": "Doncho",
-      "passHash": "4cb5ba2355368d4dfd14c9eee9a134791f7001cb",
-      "usernameLower": "doncho",
-      "id": 638133,
-      "authKey": "638133rya+ln-lj!xno*xo-@r#y&w-wh&xu@o&ins$#j-ntt=zbi-&cluke#"
     }
   ]
 }

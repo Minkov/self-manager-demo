@@ -7,7 +7,8 @@ var eventsController = (function() {
         events = _.chain(resEvents)
           .map(controllerHelpers.fixDate)
           .groupBy(controllerHelpers.groupByCategory)
-          .map(controllerHelpers.parseGroups).value();
+          .map(controllerHelpers.parseGroups)
+          .value();
 
         if (category) {
           events = events.filter(controllerHelpers.filterByCategory(category));
@@ -19,7 +20,7 @@ var eventsController = (function() {
         context.$element().html(template(events));
       })
       .catch(function(err) {
-        console.log(err);
+        toastr.error(JSON.stringify(err));
       });
   }
 
@@ -35,18 +36,19 @@ var eventsController = (function() {
         });
 
         $('#tb-event-date').datepicker();
+        $('#tb-event-time').timepicker();
 
         $('#btn-event-add').on('click', function() {
-
           var event = {
             title: $('#tb-event-title').val(),
             category: $('#tb-event-category').val(),
             description: $('#tb-event-description').val(),
-            date: $('#tb-event-date').val()
+            date: $('#tb-event-date').val() + ' ' + $('#tb-event-time').val()
           };
 
           data.events.add(event)
             .then(function(event) {
+              toastr.success(`Event "${event.title}" created!`);
               context.redirect(`#/events?=${event.category}`);
             });
         });
@@ -54,7 +56,8 @@ var eventsController = (function() {
   }
 
   return {
-    all, add
+    all: all,
+    add: add
   };
 
 }());

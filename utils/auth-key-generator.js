@@ -1,4 +1,4 @@
-const chars = 'qwertyuiopasdfghjklzxcvbnm!@#$%^&*()_+-=',
+const chars = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM!@#$%^&*()_+-=',
   length = 60;
 
 function get(id) {

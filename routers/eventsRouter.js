@@ -16,6 +16,7 @@ module.exports = function(db) {
 
       var now = new Date();
       var indicesToRemove = [];
+      user.events = user.events || [];
 
       user.events.forEach(function(event, index) {
         var date = new Date(event.date);

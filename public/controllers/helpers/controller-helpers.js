@@ -16,7 +16,7 @@ var controllerHelpers = function() {
     };
   }
 
-  function _fixDate(event) {
+  function fixDate_old(event) {
     return {
       title: event.title,
       date: moment(event.date).format('MMM Do YYYY, hh:mm'),
@@ -31,13 +31,6 @@ var controllerHelpers = function() {
     newItem.date = moment(item.date).format('MMM Do YYYY, hh:mm');
     newItem.timeRemaining = moment(item.date).fromNow();
     return newItem;
-    // return {
-    //   title: event.title,
-    //   date: moment(event.date).format('MMM Do YYYY, hh:mm'),
-    //   timeRemaining: moment(event.date).fromNow(),
-    //   description: event.description,
-    //   category: event.category
-    // };
   }
 
   return {

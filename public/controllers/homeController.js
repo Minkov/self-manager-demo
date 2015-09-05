@@ -8,6 +8,6 @@ var homeController = function() {
   }
 
   return {
-    all
+    all: all
   };
 }();

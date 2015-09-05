@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
   <link rel="stylesheet" href="bower_components/jquery-ui/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="bower_components/jt.timepicker/jquery.timepicker.css">
+  <link rel="stylesheet" href="bower_components/toastr/toastr.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
 
@@ -34,8 +36,8 @@
           </div>
           <a href="#/users/register"> or Register</a>
         </form>
-        <form class="form-inline col-md-6 hidden" id="container-sign-out">
-          <button id="btn-sign-in" class="btn btn-default">Sign out</button>
+        <form class="form-inline col-md-6" id="container-sign-out">
+          <button id="btn-sign-out" class="btn btn-default">Sign out</button>
         </form>
       </div>
       <nav class="navbar navbar-default row">
@@ -67,12 +69,14 @@
   <!-- Libs -->
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+  <script src="bower_components/jt.timepicker/jquery.timepicker.js"></script>
   <script src="bower_components/sammy/lib/sammy.js"></script>
   <script src="bower_components/handlebars/handlebars.js"></script>
   <script src="bower_components/sha1/index.js"></script>
   <script src="bower_components/lodash/lodash.js"></script>
   <script src="bower_components/moment/moment.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="bower_components/toastr/toastr.js"></script>
 
   <!-- App -->
 
@@ -90,7 +94,7 @@
   <!-- App: Start -->
   <script src="app.js"></script>
 
-  <script src="http://localhost:35729/livereload.js">
+  <!-- <script src="http://localhost:35729/livereload.js"> -->
   </script>
 
 </body>

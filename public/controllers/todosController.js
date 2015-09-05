@@ -24,6 +24,9 @@ var todosController = (function() {
           var id = $(this).attr('data-id');
           data.todos.update(id, {
             state: isChecked
+          }).then(function(todo) {
+            toastr.clear();
+            toastr.error(`TODO ${todo.text} updated!`);
           });
         });
       })
@@ -51,6 +54,7 @@ var todosController = (function() {
 
           data.todos.add(todo)
             .then(function(todo) {
+              toastr.success(`TODO "${todo.text}" added!`);
               context.redirect('#/todos');
             });
         });
@@ -58,6 +62,7 @@ var todosController = (function() {
   }
 
   return {
-    all, add
+    all: all,
+    add: add
   };
 }());

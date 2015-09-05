@@ -45,7 +45,7 @@ var data = (function() {
           var user = resp.result;
           localStorage.setItem(LOCAL_STORAGE_USERNAME_KEY, user.username);
           localStorage.setItem(LOCAL_STORAGE_AUTHKEY_KEY, user.authKey);
-          resolve();
+          resolve(resp);
         }
       });
     });
@@ -59,6 +59,11 @@ var data = (function() {
       resolve();
     });
     return promise;
+  }
+
+  function hasUser() {
+    return !!localStorage.getItem(LOCAL_STORAGE_USERNAME_KEY) &&
+      !!localStorage.getItem(LOCAL_STORAGE_AUTHKEY_KEY);
   }
 
   function usersGet() {
@@ -183,7 +188,7 @@ var data = (function() {
   /* Categories */
   function categoriesGet() {
     var promise = new Promise(function(resolve, reject) {
-      var url = 'api/categories?notCache=' + Math.random();
+      var url = 'api/categories';
       $.ajax(url, {
         method: 'GET',
         headers: {
@@ -206,7 +211,8 @@ var data = (function() {
       signIn,
       signOut,
       register,
-      get: usersGet
+      hasUser,
+      get: usersGet,
     },
     todos: {
       get: todosGet,

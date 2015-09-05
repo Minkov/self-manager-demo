@@ -16,12 +16,27 @@ module.exports = function(db) {
 
     var categories = db('users')
       .map(function(user) {
-        return user.todos.map(function(todo) {
-          return todo.category;
-        });
+        var todoCategories = [];
+        if (user.todos) {
+          todoCategories = user.todos.map(function(todo) {
+            return todo.category;
+          });
+        }
+        var eventCategories = [];
+        if (user.events) {
+          eventCategories = user.events.map(function(event) {
+            return event.category;
+          });
+        }
+        return todoCategories.concat(eventCategories);
       });
 
-    categories = _.flatten(categories, true);
+    categories = _.chain(categories)
+      .flatten(categories, true)
+      .sortBy(function(cat) {
+        return cat.toLowerCase();
+      }).uniq()
+      .value();
 
     res.json({
       result: categories

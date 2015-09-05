@@ -9,8 +9,12 @@ module.exports = function(db) {
       var page = +(req.query.page || 0),
         size = +(req.query.size || 10);
 
-      var users = db('users');
-      users = users.slice(page * size, size);
+      var users = db('users')
+        .chain()
+        .sortBy('username')
+        .slice(page * size)
+        .take(size).value;
+
       res.json({
         result: users
       });
@@ -18,10 +22,10 @@ module.exports = function(db) {
     .post('/', function(req, res) {
       var user = req.body;
       user.usernameLower = user.username.toLowerCase();
-      user.id = idGenerator.next();
       user.authKey = authKeyGenerator.get(user.id);
 
-      db('users').push(user);
+      db('users').insert(user);
+
       res.status(201)
         .json({
           result: user

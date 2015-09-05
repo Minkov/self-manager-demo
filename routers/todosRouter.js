@@ -58,10 +58,11 @@ module.exports = function(db) {
       }
 
       var update = req.body;
-      
+
       todo.text = (typeof update.text === 'undefined') ? todo.text : update.text;
       todo.state = (typeof update.state === 'undefined') ? todo.state : update.state;
 
+      db.save();
 
       res.json({
         result: todo
