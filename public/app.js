@@ -1,4 +1,5 @@
 (function() {
+
   var sammyApp = Sammy('#content', function() {
     var $content = $('#content');
 
@@ -12,6 +13,8 @@
 
     this.get('#/users', usersController.all);
     this.get('#/users/register', usersController.register);
+
+    this.get('#/notifications', notificationsController.all);
   });
 
   $(function() {

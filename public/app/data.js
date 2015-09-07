@@ -206,6 +206,81 @@ var data = (function() {
     return promise;
   }
 
+
+  /* Notifications */
+
+  function notificationsGet() {
+    var promise = new Promise(function(resolve, reject) {
+      var url = 'api/notifications';
+      $.ajax(url, {
+        method: 'GET',
+        headers: {
+          'x-auth-key': localStorage.getItem(LOCAL_STORAGE_AUTHKEY_KEY)
+        },
+        contentType: 'application/json',
+        success: function(resp) {
+          resolve(resp.result);
+        },
+        error: function(err) {
+          reject(err);
+        }
+      });
+    });
+    return promise;
+  }
+
+  /* Friends */
+
+  function sentRequest(id) {
+    var promise = new Promise(function(resolve, reject) {
+      var body = {
+        userId: id
+      };
+      $.ajax({
+        url: 'api/friends',
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(body),
+        headers: {
+          'x-auth-key': localStorage.getItem(LOCAL_STORAGE_AUTHKEY_KEY)
+        },
+        success: function(resp) {
+          resolve(resp.result);
+        },
+        error: function(err) {
+          reject(err);
+        }
+      });
+    });
+    return promise;
+  }
+
+  function confirmRequest(id) {
+    var promise = new Promise(function(resolve, reject) {
+      var body = {
+        userId: id,
+        state: 'confirm'
+      };
+
+      $.ajax({
+        url: 'api/friends',
+        method: 'PUT',
+        contentType: 'application/json',
+        data: JSON.stringify(body),
+        headers: {
+          'x-auth-key': localStorage.getItem(LOCAL_STORAGE_AUTHKEY_KEY)
+        },
+        success: function(resp) {
+          resolve(resp.result);
+        },
+        error: function(err) {
+          reject(err);
+        }
+      });
+    });
+  }
+
+
   return {
     users: {
       signIn,
@@ -225,6 +300,12 @@ var data = (function() {
     },
     categories: {
       get: categoriesGet
+    },
+    friends: {
+      sentRequest: sentRequest
+    },
+    notifications: {
+      get: notificationsGet
     }
   };
 }());

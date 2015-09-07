@@ -9,6 +9,10 @@ var usersController = function() {
       })
       .then(function(template) {
         context.$element().html(template(users));
+        $('.btn-add-friend').on('click', function() {
+          var id = $(this).parents('.user-box').attr('data-id');
+          data.friends.sentRequest(id);
+        });
       });
   }
 
@@ -33,6 +37,7 @@ var usersController = function() {
   }
 
   return {
-    all:all, register:register
+    all: all,
+    register: register
   };
 }();

@@ -4,6 +4,7 @@ var eventsController = (function() {
     var category = this.params.category || null;
     data.events.get()
       .then(function(resEvents) {
+        console.log(resEvents);
         events = _.chain(resEvents)
           .map(controllerHelpers.fixDate)
           .groupBy(controllerHelpers.groupByCategory)
@@ -28,13 +29,6 @@ var eventsController = (function() {
     templates.get('event-add')
       .then(function(template) {
         context.$element().html(template());
-        return data.categories.get();
-      })
-      .then(function(categories) {
-        $('#tb-event-category').autocomplete({
-          source: categories
-        });
-
         $('#tb-event-date').datepicker();
         $('#tb-event-time').timepicker();
 
@@ -43,7 +37,8 @@ var eventsController = (function() {
             title: $('#tb-event-title').val(),
             category: $('#tb-event-category').val(),
             description: $('#tb-event-description').val(),
-            date: $('#tb-event-date').val() + ' ' + $('#tb-event-time').val()
+            date: $('#tb-event-date').val() + ' ' + $('#tb-event-time').val(),
+            users: [$('#tb-event-users').val()]
           };
 
           data.events.add(event)
@@ -52,6 +47,21 @@ var eventsController = (function() {
               context.redirect(`#/events?=${event.category}`);
             });
         });
+
+        return data.categories.get();
+      }).then(function(categories) {
+        $('#tb-event-category').autocomplete({
+          source: categories
+        });
+        return data.users.get();
+      }).then(function(users) {
+        users = users.map(function(user) {
+          return user.username;
+        });
+        $('#tb-event-users').autocomplete({
+          source: users
+        });
+
       });
   }
 

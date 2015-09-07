@@ -34,8 +34,28 @@ module.exports = function(db) {
         return new Date(e1.date) - new Date(e2.date);
       });
 
+      var events = user.events || [];
+      events = events.map(function(dbEvent) {
+        var event = {
+          id: dbEvent.id,
+          title: dbEvent.title,
+          category: dbEvent.category,
+          description: dbEvent.description,
+          date: dbEvent.date,
+          users: dbEvent.users.map(function(userId) {
+            return {
+              id: userId,
+              username: db('users').find({
+                id: userId
+              })
+            };
+          })
+        };
+        return event;
+      });
+
       res.json({
-        result: user.events
+        result: events
       });
     })
     .post('/', function(req, res) {
@@ -45,16 +65,44 @@ module.exports = function(db) {
           .json('Not authorized User');
         return;
       }
+
+      var usersUsernames = req.body.users || [];
+
+      var users = usersUsernames.map(function(username) {
+        return db('users').find({
+          usernameLower: username.toLowerCase()
+        });
+      }).filter(function(user) {
+        return !!user;
+      });
+
+      if (users.length !== usersUsernames.length) {
+        res.status(400)
+          .json('Invalid users added');
+        return;
+      }
+
+      users.push(user);
+
+      user.events = user.events || [];
+
       var event = {
         id: idGenerator.next(),
         title: req.body.title,
         category: req.body.category || 'uncategorized',
         description: req.body.description,
-        date: new Date(req.body.date)
+        date: new Date(req.body.date),
+        users: users.map(function(user) {
+          return user.id;
+        })
       };
-      user.events = user.events || [];
 
-      user.events.push(event);
+      users.forEach(function(user) {
+        user.events.push(event);
+      });
+      db.save();
+
+      // user.events.push(event);
 
       res.status(201)
         .json({

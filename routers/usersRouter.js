@@ -13,7 +13,7 @@ module.exports = function(db) {
         .chain()
         .sortBy('username')
         .slice(page * size)
-        .take(size).value;
+        .take(size).value();
 
       res.json({
         result: users
@@ -23,7 +23,6 @@ module.exports = function(db) {
       var user = req.body;
       user.usernameLower = user.username.toLowerCase();
       user.authKey = authKeyGenerator.get(user.id);
-
       db('users').insert(user);
 
       res.status(201)

@@ -4,23 +4,39 @@
       "username": "Minkov",
       "passHash": "aa95f6e4ccc679dcdf2627efff6832aa4a4ac44a",
       "usernameLower": "minkov",
-      "authKey": "undefinedFP^h&Pv$RmllCJNOQfBafJKqS%V=scbgMgZWcJLwdG@=!+Ku-op",
-      "id": "7cb06f58-3fde-489e-9a06-91f8272a519a",
-      "todos": [
-        {
-          "id": 740602,
-          "text": "Clean the dishes",
-          "state": false,
-          "category": "Home"
-        }
-      ],
+      "authKey": "undefinedFfSFreb!u-EbdEMzV@sCwLSOYrNl#^bEx_REX^FUwu+UVgVyann",
+      "id": "f35b67dc-8887-46ce-a2be-2cc6de5e5d72",
       "events": [
         {
-          "id": 937231,
-          "title": "Text",
+          "id": 762052,
+          "title": "Test with Minkov",
           "category": "Home",
-          "description": "123",
-          "date": "2015-09-22T22:30:00.000Z"
+          "description": "",
+          "date": "2015-09-15T21:00:00.000Z",
+          "users": [
+            "f35b67dc-8887-46ce-a2be-2cc6de5e5d72",
+            "e24dad7b-4e46-4be8-9e35-b9877e716e97"
+          ]
+        }
+      ]
+    },
+    {
+      "username": "Doncho",
+      "passHash": "4cb5ba2355368d4dfd14c9eee9a134791f7001cb",
+      "usernameLower": "doncho",
+      "authKey": "undefinedBL@^%dq!$wu(N&v$kADTEYcq@zoxZ!EQVz)A*CkvnV_Nkw$%Ad*",
+      "id": "e24dad7b-4e46-4be8-9e35-b9877e716e97",
+      "events": [
+        {
+          "id": 762052,
+          "title": "Test with Minkov",
+          "category": "Home",
+          "description": "",
+          "date": "2015-09-15T21:00:00.000Z",
+          "users": [
+            "f35b67dc-8887-46ce-a2be-2cc6de5e5d72",
+            "e24dad7b-4e46-4be8-9e35-b9877e716e97"
+          ]
         }
       ]
     }
