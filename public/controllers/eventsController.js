@@ -15,6 +15,7 @@ var eventsController = (function() {
           events = events.filter(controllerHelpers.filterByCategory(category));
         }
 
+        console.log(events);
         return templates.get('events');
       })
       .then(function(template) {

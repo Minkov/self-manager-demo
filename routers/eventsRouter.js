@@ -42,6 +42,9 @@ module.exports = function(db) {
           category: dbEvent.category,
           description: dbEvent.description,
           date: dbEvent.date,
+          creator: db('users').find({
+            id: dbEvent.creatorId
+          }).username,
           users: dbEvent.users.map(function(userId) {
             return {
               id: userId,
@@ -92,12 +95,14 @@ module.exports = function(db) {
         category: req.body.category || 'uncategorized',
         description: req.body.description,
         date: new Date(req.body.date),
+        creatorId: user.id,
         users: users.map(function(user) {
           return user.id;
         })
       };
 
       users.forEach(function(user) {
+        user.events = user.events || [];
         user.events.push(event);
       });
       db.save();

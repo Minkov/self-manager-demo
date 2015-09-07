@@ -4,38 +4,64 @@
       "username": "Minkov",
       "passHash": "aa95f6e4ccc679dcdf2627efff6832aa4a4ac44a",
       "usernameLower": "minkov",
-      "authKey": "undefinedFfSFreb!u-EbdEMzV@sCwLSOYrNl#^bEx_REX^FUwu+UVgVyann",
-      "id": "f35b67dc-8887-46ce-a2be-2cc6de5e5d72",
+      "authKey": "undefinedb+!K=hzTb&Kkm(XPQ&D!j$qAArMC=lHEhzPj(=G(wB^hk$hk*qs",
+      "id": "20c652bf-0eac-4428-8dc8-e7f147b5f85e",
       "events": [
         {
-          "id": 762052,
-          "title": "Test with Minkov",
-          "category": "Home",
+          "id": 260967,
+          "title": "Test with Minkov and Cuki",
+          "category": "Work",
           "description": "",
-          "date": "2015-09-15T21:00:00.000Z",
+          "date": "2015-09-08T21:00:00.000Z",
+          "creatorId": "20c652bf-0eac-4428-8dc8-e7f147b5f85e",
           "users": [
-            "f35b67dc-8887-46ce-a2be-2cc6de5e5d72",
-            "e24dad7b-4e46-4be8-9e35-b9877e716e97"
+            "2e5a8bd6-aae8-4f86-93ae-40207562b8c4",
+            "20c652bf-0eac-4428-8dc8-e7f147b5f85e"
+          ]
+        },
+        {
+          "id": 298606,
+          "title": "Test with Minkov and Cuki",
+          "category": "Work",
+          "description": "",
+          "date": "2015-09-08T21:00:00.000Z",
+          "creatorId": "20c652bf-0eac-4428-8dc8-e7f147b5f85e",
+          "users": [
+            "2e5a8bd6-aae8-4f86-93ae-40207562b8c4",
+            "20c652bf-0eac-4428-8dc8-e7f147b5f85e"
           ]
         }
       ]
     },
     {
-      "username": "Doncho",
-      "passHash": "4cb5ba2355368d4dfd14c9eee9a134791f7001cb",
-      "usernameLower": "doncho",
-      "authKey": "undefinedBL@^%dq!$wu(N&v$kADTEYcq@zoxZ!EQVz)A*CkvnV_Nkw$%Ad*",
-      "id": "e24dad7b-4e46-4be8-9e35-b9877e716e97",
+      "username": "Cuki",
+      "passHash": "6edbb5c948d25789eccdfb37b70ff7f728f49786",
+      "usernameLower": "cuki",
+      "authKey": "undefinedvATd&fe=eZt=ERo!YLJgNC!UT^@LC)JHZ(XQQ=_%@xaM+)sK!FL",
+      "id": "2e5a8bd6-aae8-4f86-93ae-40207562b8c4",
       "events": [
         {
-          "id": 762052,
-          "title": "Test with Minkov",
-          "category": "Home",
+          "id": 260967,
+          "title": "Test with Minkov and Cuki",
+          "category": "Work",
           "description": "",
-          "date": "2015-09-15T21:00:00.000Z",
+          "date": "2015-09-08T21:00:00.000Z",
+          "creatorId": "20c652bf-0eac-4428-8dc8-e7f147b5f85e",
           "users": [
-            "f35b67dc-8887-46ce-a2be-2cc6de5e5d72",
-            "e24dad7b-4e46-4be8-9e35-b9877e716e97"
+            "2e5a8bd6-aae8-4f86-93ae-40207562b8c4",
+            "20c652bf-0eac-4428-8dc8-e7f147b5f85e"
+          ]
+        },
+        {
+          "id": 298606,
+          "title": "Test with Minkov and Cuki",
+          "category": "Work",
+          "description": "",
+          "date": "2015-09-08T21:00:00.000Z",
+          "creatorId": "20c652bf-0eac-4428-8dc8-e7f147b5f85e",
+          "users": [
+            "2e5a8bd6-aae8-4f86-93ae-40207562b8c4",
+            "20c652bf-0eac-4428-8dc8-e7f147b5f85e"
           ]
         }
       ]
