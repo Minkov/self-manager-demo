@@ -1,7 +1,6 @@
 (function() {
 
   var sammyApp = Sammy('#content', function() {
-    var $content = $('#content');
 
     this.get('#/', homeController.all);
 
